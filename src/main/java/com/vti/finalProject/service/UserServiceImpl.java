@@ -1,24 +1,30 @@
 package com.vti.finalProject.service;
 
 import com.vti.finalProject.dto.UserDto;
+import com.vti.finalProject.entity.Position;
 import com.vti.finalProject.entity.User;
 import com.vti.finalProject.form.UserCreateForm;
 import com.vti.finalProject.form.UserUpdateForm;
-
 import com.vti.finalProject.mappper.UserMapper;
+import com.vti.finalProject.repository.PositionRepository;
 import com.vti.finalProject.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final PositionRepository positionRepository;
 
     @Override
     public UserDto create(UserCreateForm form) {
         User user = UserMapper.map(form);
+        Position position = positionRepository.findById(form.getPositionId())
+                .orElseThrow(() -> new EntityNotFoundException("Position not found"));
+        user.setPosition(position);
         user = userRepository.save(user);
         return UserMapper.map(user);
     }
@@ -40,7 +46,7 @@ public class UserServiceImpl implements UserService {
         if (userRepository.existsById(id)) {
             userRepository.deleteById(id);
         } else {
-            System.out.println("User with id " + id + " not found.");
+            throw new EntityNotFoundException("User with id " + id + " not found.");
         }
     }
 
@@ -52,7 +58,13 @@ public class UserServiceImpl implements UserService {
         user.setEmail(form.getEmail());
         user.setGender(form.getGender());
         user.setPhone(form.getPhone());
-        user.setPosition(form.getPosition());
+
+        if (form.getPositionId() != null) {
+            Position position = positionRepository.findById(form.getPositionId())
+                    .orElseThrow(() -> new EntityNotFoundException("Position not found"));
+            user.setPosition(position);
+        }
+
         user.setSkill(form.getSkill());
 
         if (form.getPassword() != null && !form.getPassword().isEmpty()) {
@@ -62,5 +74,4 @@ public class UserServiceImpl implements UserService {
         user = userRepository.save(user);
         return UserMapper.map(user);
     }
-
 }

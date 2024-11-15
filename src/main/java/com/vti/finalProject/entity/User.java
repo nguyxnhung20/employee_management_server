@@ -31,8 +31,9 @@ public class User {
     @Column(name = "phone")
     private String phone;
 
-    @Column(name = "position")
-    private String position;
+    @ManyToOne
+    @JoinColumn(name = "position_id")
+    private Position position;
 
     @Column(name = "skill")
     private String skill;

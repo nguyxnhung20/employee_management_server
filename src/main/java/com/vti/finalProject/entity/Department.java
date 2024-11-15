@@ -16,7 +16,7 @@ public class Department {
     @Column(name = "department_id")
     private int departmentId;
 
-    @Column(name = "department_name")
+    @Column(name = "department_name", nullable = false)
     private String departmentName;
 
     @Column(name = "manager_id")
@@ -24,4 +24,7 @@ public class Department {
 
     @OneToMany(mappedBy = "department")
     private Set<User> users;
+
+    @OneToMany(mappedBy = "department")
+    private Set<Position> positions;
 }

@@ -11,7 +11,6 @@ public class UserDto {
     private String email;
     private String gender;
     private String phone;
-    private String position;
+    private PositionDto position;
     private String skill;
-    private String departmentName;
 }
