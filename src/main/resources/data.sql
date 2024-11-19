@@ -1,4 +1,3 @@
--- Thêm dữ liệu vào bảng Departments
 INSERT INTO Departments (department_id, department_name, manager_id)
 VALUES
     (1, 'Phòng Kỹ Thuật', 101),
@@ -13,7 +12,7 @@ VALUES
     (10, 'Phòng Bảo Vệ', 110),
     (11, 'Phòng Kế Hoạch', 111);
 
--- Thêm dữ liệu vào bảng Positions
+
 INSERT INTO Positions (position_name, level, department_id)
 VALUES
     ('Junior Developer', 'Junior', 1),
@@ -27,7 +26,6 @@ VALUES
     ('QA Lead', 'Lead', 2),
     ('QA Manager', 'Manager', 2);
 
--- Thêm dữ liệu vào bảng user (Đảm bảo rằng bảng user có các trường created_at và updated_at)
 INSERT INTO user (full_name, email, gender, phone, department_id, position_id, skill, password, created_at, updated_at)
 VALUES
     ('Nguyễn Văn A', 'nguyenvana@example.com', 'Male', '0901234567', 1, 1, 'Java, Spring Boot', 'password123', NOW(), NOW()),
@@ -41,7 +39,6 @@ VALUES
     ('Lê Minh I', 'leminhi@example.com', 'Male', '0909012345', 9, 9, 'Teaching, Leadership', 'password123', NOW(), NOW()),
     ('Trần Thị J', 'tranthij@example.com', 'Female', '0900123456', 10, 10, 'Surveillance, Security', 'password123', NOW(), NOW());
 
--- Thêm dữ liệu vào bảng EmployeeProfiles
 INSERT INTO employee_profiles (user_id, department_id, job_title, status, hire_date)
 VALUES
     (1, 1, 'Junior Developer', 'Approved', '2022-01-15'),
@@ -55,7 +52,6 @@ VALUES
     (9, 9, 'Training Specialist', 'Approved', '2022-05-22'),
     (10, 10, 'Security Officer', 'Pending', '2023-09-18');
 
--- Thêm dữ liệu vào bảng WorkSchedules (Đảm bảo rằng user_id tồn tại trong bảng user)
 INSERT INTO work_schedules (user_id, work_date, work_hours, status, created_at)
 VALUES
     (1, '2024-11-01', 8, 'COMPLETED', NOW()),
@@ -68,3 +64,16 @@ VALUES
     (8, '2024-11-03', 7, 'APPROVED', NOW()),
     (9, '2024-11-03', 6, 'PENDING', NOW()),
     (10, '2024-11-04', 8, 'COMPLETED', NOW());
+
+INSERT INTO employee_work_records (user_id, task_name, task_description, start_time, end_time, duration_in_hours, status, performance_rating, created_at, updated_at)
+VALUES
+    (1, 'Task 1', 'Description of task 1', '2024-11-01 09:00:00', '2024-11-01 12:00:00', 3.0, 'COMPLETED', 'GOOD', NOW(), NOW()),
+    (2, 'Task 2', 'Description of task 2', '2024-11-02 10:00:00', '2024-11-02 13:00:00', 3.0, 'IN_PROGRESS', 'AVERAGE', NOW(), NOW()),
+    (3, 'Task 3', 'Description of task 3', '2024-11-03 08:00:00', '2024-11-03 11:00:00', 3.0, 'NOT_STARTED', 'POOR', NOW(), NOW()),
+    (4, 'Task 4', 'Description of task 4', '2024-11-04 14:00:00', '2024-11-04 18:00:00', 4.0, 'COMPLETED', 'EXCELLENT', NOW(), NOW()),
+    (5, 'Task 5', 'Description of task 5', '2024-11-05 09:00:00', '2024-11-05 12:00:00', 3.0, 'COMPLETED', 'GOOD', NOW(), NOW()),
+    (6, 'Task 6', 'Description of task 6', '2024-11-06 10:00:00', '2024-11-06 13:00:00', 3.0, 'IN_PROGRESS', 'AVERAGE', NOW(), NOW()),
+    (7, 'Task 7', 'Description of task 7', '2024-11-07 08:00:00', '2024-11-07 11:00:00', 3.0, 'NOT_STARTED', 'POOR', NOW(), NOW()),
+    (8, 'Task 8', 'Description of task 8', '2024-11-08 14:00:00', '2024-11-08 18:00:00', 4.0, 'COMPLETED', 'EXCELLENT', NOW(), NOW()),
+    (9, 'Task 9', 'Description of task 9', '2024-11-09 09:00:00', '2024-11-09 12:00:00', 3.0, 'COMPLETED', 'GOOD', NOW(), NOW()),
+    (10, 'Task 10', 'Description of task 10', '2024-11-10 10:00:00', '2024-11-10 13:00:00', 3.0, 'IN_PROGRESS', 'AVERAGE', NOW(), NOW());
