@@ -132,5 +132,19 @@ VALUES
     ('Machine Learning Introduction', 'A beginner-friendly course on machine learning and data science.', '2024-12-05', '2024-12-15', 'Scheduled'),
     ('Cybersecurity Fundamentals', 'Learn the basics of cybersecurity and how to protect systems from potential threats.', '2024-12-15', '2024-12-25', 'Scheduled');
 
+INSERT INTO training_enrollments (user_id, training_id, enrollment_date, status)
+VALUES
+    (1, 1, CURRENT_DATE, 'Enrolled'),
+    (2, 2, CURRENT_DATE, 'Enrolled'),
+    (3, 1, CURRENT_DATE, 'Completed'),
+    (4, 3, CURRENT_DATE, 'Enrolled'),
+    (5, 4, CURRENT_DATE, 'Dropped'),
+    (6, 2, CURRENT_DATE, 'Enrolled'),
+    (7, 3, CURRENT_DATE, 'Completed'),
+    (8, 1, CURRENT_DATE, 'Enrolled'),
+    (9, 2, CURRENT_DATE, 'Enrolled'),
+    (10, 4, CURRENT_DATE, 'Dropped');
+
+
 
 
