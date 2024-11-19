@@ -106,3 +106,17 @@ VALUES
     (9, 'Training Request', 'Request to attend data science seminar', 'PENDING', NOW(), NOW(), FALSE, FALSE),
     (10, 'Leave Request', 'Request for leave on 2024-12-05', 'REJECTED', NOW(), NOW(), FALSE, FALSE);
 
+-- Insert data into HR_EmployeeManagement table
+INSERT INTO hr_employee_management (user_id, department_id, hire_date, evaluation) VALUES
+                                                                                      (1, 1, '2020-01-15', 'Excellent performance in employee management and recruitment.'),
+                                                                                      (2, 2, '2021-06-10', 'Strong technical skills in software development, but needs improvement in communication.'),
+                                                                                      (3, 3, '2019-03-22', 'Highly skilled in financial analysis and budgeting, great attention to detail.'),
+                                                                                      (4, 4, '2022-08-05', 'Creative marketer, consistently contributes to successful campaigns and brand building.'),
+                                                                                      (5, 5, '2021-11-12', 'Consistently exceeds sales targets and builds strong customer relationships.'),
+                                                                                      (6, 1, '2022-01-20', 'Good assistant to HR manager, manages payroll effectively and is reliable.'),
+                                                                                      (7, 2, '2020-07-30', 'Strong coding skills and ability to deliver projects within deadlines.'),
+                                                                                      (8, 3, '2018-12-10', 'Detailed-oriented and accurate in preparing financial statements and reports.'),
+                                                                                      (9, 4, '2021-05-15', 'Effectively manages marketing strategies and campaigns, excellent communication skills.'),
+                                                                                      (10, 5, '2020-09-25', 'Proven track record in driving sales growth, excellent negotiation skills.');
+
+
