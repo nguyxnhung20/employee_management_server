@@ -119,4 +119,18 @@ INSERT INTO hr_employee_management (user_id, department_id, hire_date, evaluatio
                                                                                       (9, 4, '2021-05-15', 'Effectively manages marketing strategies and campaigns, excellent communication skills.'),
                                                                                       (10, 5, '2020-09-25', 'Proven track record in driving sales growth, excellent negotiation skills.');
 
+INSERT INTO hr_training_programs (training_name, description, start_date, end_date, status)
+VALUES
+    ('Java Programming Basics', 'A beginner-level training program to learn the basics of Java programming.', '2024-12-01', '2024-12-15', 'Scheduled'),
+    ('Advanced Java Development', 'An advanced course for developers to deepen their knowledge of Java and related technologies.', '2024-12-10', '2024-12-30', 'Scheduled'),
+    ('Spring Framework Fundamentals', 'Introduction to the Spring Framework for building enterprise applications.', '2024-12-05', '2024-12-20', 'Scheduled'),
+    ('Frontend Development with React', 'A training program focusing on building modern web apps using React.js.', '2024-12-15', '2024-12-25', 'Scheduled'),
+    ('Project Management Essentials', 'A program designed to teach the basics of project management and Agile methodologies.', '2024-12-01', '2024-12-10', 'Scheduled'),
+    ('Database Management Systems', 'An introduction to relational databases and SQL for managing data efficiently.', '2024-12-20', '2024-12-31', 'Scheduled'),
+    ('DevOps and CI/CD Pipeline', 'Learn DevOps practices and how to implement continuous integration and deployment.', '2024-12-10', '2024-12-18', 'Scheduled'),
+    ('Cloud Computing with AWS', 'An introductory program on cloud technologies and AWS services.', '2024-12-12', '2024-12-22', 'Scheduled'),
+    ('Machine Learning Introduction', 'A beginner-friendly course on machine learning and data science.', '2024-12-05', '2024-12-15', 'Scheduled'),
+    ('Cybersecurity Fundamentals', 'Learn the basics of cybersecurity and how to protect systems from potential threats.', '2024-12-15', '2024-12-25', 'Scheduled');
+
+
 
