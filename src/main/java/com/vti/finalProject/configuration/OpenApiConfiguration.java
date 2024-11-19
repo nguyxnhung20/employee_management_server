@@ -9,9 +9,9 @@ import io.swagger.v3.oas.annotations.servers.Server;
 
 @OpenAPIDefinition(
         info = @Info(
-                title = "EmployeeManagement",
+                title = "Employee Management",
                 description = "EmployeeManagement REST APIs Documentation",
-                termsOfService = "https://github.com/nguyxnhung20/employee_management_server",
+                termsOfService = "https://github.com/nguyxnhung20/employee_management_server/tree/hung1123",
                 contact = @Contact(
                         name = "Nguyễn Duy Hưng",
                         url = "https://github.com/nguyxnhung20",
@@ -29,7 +29,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
         ),
         externalDocs = @ExternalDocumentation(
                 description = "EmployeeManagement Github",
-                url = "https://github.com/nguyxnhung20/employee_management_server"
+                url = "https://github.com/nguyxnhung20/employee_management_server/tree/hung1123"
         )
 )
 //@SecurityScheme(
