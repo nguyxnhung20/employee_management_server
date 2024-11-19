@@ -90,3 +90,19 @@ VALUES
     (8, 'Weekly Report 8', 'Content for weekly report 8', '2024-11-19', 'APPROVED'),
     (9, 'Weekly Report 9', 'Content for weekly report 9', '2024-11-19', 'PENDING'),
     (10, 'Weekly Report 10', 'Content for weekly report 10', '2024-11-19', 'APPROVED');
+
+-- Insert sample data for the Requests table
+
+INSERT INTO request (user_id, request_type, request_detail, status, created_at, updated_at, approved_by_manager, approved_by_admin)
+VALUES
+    (1, 'Leave Request', 'Request for leave on 2024-12-01', 'PENDING', NOW(), NOW(), FALSE, FALSE),
+    (2, 'Expense Reimbursement', 'Request for reimbursement of expenses for project X', 'MANAGER_APPROVED', NOW(), NOW(), TRUE, FALSE),
+    (3, 'Training Request', 'Request to attend Java programming course', 'ADMIN_APPROVED', NOW(), NOW(), TRUE, TRUE),
+    (4, 'Leave Request', 'Request for leave on 2024-12-10', 'REJECTED', NOW(), NOW(), FALSE, FALSE),
+    (5, 'Expense Reimbursement', 'Request for reimbursement for conference travel', 'PENDING', NOW(), NOW(), FALSE, FALSE),
+    (6, 'Training Request', 'Request to attend UX/UI design workshop', 'PENDING', NOW(), NOW(), FALSE, FALSE),
+    (7, 'Leave Request', 'Request for leave from 2024-11-20 to 2024-11-23', 'MANAGER_APPROVED', NOW(), NOW(), TRUE, FALSE),
+    (8, 'Expense Reimbursement', 'Request for reimbursement of office supplies', 'ADMIN_APPROVED', NOW(), NOW(), TRUE, TRUE),
+    (9, 'Training Request', 'Request to attend data science seminar', 'PENDING', NOW(), NOW(), FALSE, FALSE),
+    (10, 'Leave Request', 'Request for leave on 2024-12-05', 'REJECTED', NOW(), NOW(), FALSE, FALSE);
+
