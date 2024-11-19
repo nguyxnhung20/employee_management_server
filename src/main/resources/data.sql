@@ -13,19 +13,21 @@ VALUES
     (10, 'Phòng Bảo Vệ', 110),
     (11, 'Phòng Kế Hoạch', 111);
 
-INSERT INTO Positions (position_name, level, department_id) VALUES
-                                                                ('Junior Developer', 'Junior', 1),
-                                                                ('Mid Developer', 'Mid', 1),
-                                                                ('Senior Developer', 'Senior', 1),
-                                                                ('Team Lead', 'Lead', 1),
-                                                                ('Project Manager', 'Manager', 1),
-                                                                ('Technical Director', 'Director', 1),
-                                                                ('Junior QA', 'Junior', 2),
-                                                                ('Senior QA', 'Senior', 2),
-                                                                ('QA Lead', 'Lead', 2),
-                                                                ('QA Manager', 'Manager', 2);
+-- Thêm dữ liệu vào bảng Positions
+INSERT INTO Positions (position_name, level, department_id)
+VALUES
+    ('Junior Developer', 'Junior', 1),
+    ('Mid Developer', 'Mid', 1),
+    ('Senior Developer', 'Senior', 1),
+    ('Team Lead', 'Lead', 1),
+    ('Project Manager', 'Manager', 1),
+    ('Technical Director', 'Director', 1),
+    ('Junior QA', 'Junior', 2),
+    ('Senior QA', 'Senior', 2),
+    ('QA Lead', 'Lead', 2),
+    ('QA Manager', 'Manager', 2);
 
--- Thêm dữ liệu vào bảng user (cần thêm created_at và updated_at)
+-- Thêm dữ liệu vào bảng user (Đảm bảo rằng bảng user có các trường created_at và updated_at)
 INSERT INTO user (full_name, email, gender, phone, department_id, position_id, skill, password, created_at, updated_at)
 VALUES
     ('Nguyễn Văn A', 'nguyenvana@example.com', 'Male', '0901234567', 1, 1, 'Java, Spring Boot', 'password123', NOW(), NOW()),
@@ -53,4 +55,16 @@ VALUES
     (9, 9, 'Training Specialist', 'Approved', '2022-05-22'),
     (10, 10, 'Security Officer', 'Pending', '2023-09-18');
 
-
+-- Thêm dữ liệu vào bảng WorkSchedules (Đảm bảo rằng user_id tồn tại trong bảng user)
+INSERT INTO work_schedules (user_id, work_date, work_hours, status, created_at)
+VALUES
+    (1, '2024-11-01', 8, 'COMPLETED', NOW()),
+    (2, '2024-11-01', 7, 'APPROVED', NOW()),
+    (3, '2024-11-01', 6, 'PENDING', NOW()),
+    (4, '2024-11-02', 8, 'COMPLETED', NOW()),
+    (5, '2024-11-02', 7, 'APPROVED', NOW()),
+    (6, '2024-11-02', 8, 'PENDING', NOW()),
+    (7, '2024-11-03', 8, 'COMPLETED', NOW()),
+    (8, '2024-11-03', 7, 'APPROVED', NOW()),
+    (9, '2024-11-03', 6, 'PENDING', NOW()),
+    (10, '2024-11-04', 8, 'COMPLETED', NOW());
