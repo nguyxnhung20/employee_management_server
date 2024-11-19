@@ -39,4 +39,18 @@ VALUES
     ('Lê Minh I', 'leminhi@example.com', 'Male', '0909012345', 9, 9, 'Teaching, Leadership', 'password123', NOW(), NOW()),
     ('Trần Thị J', 'tranthij@example.com', 'Female', '0900123456', 10, 10, 'Surveillance, Security', 'password123', NOW(), NOW());
 
+-- Thêm dữ liệu vào bảng EmployeeProfiles
+INSERT INTO employee_profiles (user_id, department_id, job_title, status, hire_date)
+VALUES
+    (1, 1, 'Junior Developer', 'Approved', '2022-01-15'),
+    (2, 2, 'Sales Representative', 'Approved', '2022-02-10'),
+    (3, 3, 'HR Specialist', 'Pending', '2023-03-01'),
+    (4, 4, 'Financial Analyst', 'Approved', '2021-11-20'),
+    (5, 5, 'SEO Specialist', 'Approved', '2022-06-05'),
+    (6, 6, 'Customer Service Representative', 'Approved', '2023-01-10'),
+    (7, 7, 'Research Scientist', 'Pending', '2023-08-15'),
+    (8, 8, 'Office Manager', 'Approved', '2021-10-30'),
+    (9, 9, 'Training Specialist', 'Approved', '2022-05-22'),
+    (10, 10, 'Security Officer', 'Pending', '2023-09-18');
+
 
