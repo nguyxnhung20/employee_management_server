@@ -145,6 +145,20 @@ VALUES
     (9, 2, CURRENT_DATE, 'Enrolled'),
     (10, 4, CURRENT_DATE, 'Dropped');
 
+INSERT INTO Candidates (full_name, email, phone, resume_link, application_date, interview_score, status)
+VALUES
+    ('Nguyen Van A', 'nguyenvana@example.com', '0123456789', 'http://example.com/resume/nguyenvana.pdf', CURDATE(), 85.5, 'Interviewed'),
+    ('Tran Thi B', 'tranthib@example.com', '0987654321', 'http://example.com/resume/tranthib.pdf', CURDATE(), 90.0, 'Interviewed'),
+    ('Le Minh C', 'leminhc@example.com', '0112233445', 'http://example.com/resume/leminhc.pdf', CURDATE(), 78.0, 'Accepted'),
+    ('Pham Thuy D', 'phamthuyd@example.com', '0123456780', 'http://example.com/resume/phamthuyd.pdf', CURDATE(), 92.0, 'Interviewed'),
+    ('Hoang Thi E', 'hoangthie@example.com', '0987654322', 'http://example.com/resume/hoangthie.pdf', CURDATE(), 80.0, 'Rejected'),
+    ('Vu Quang F', 'vuquangf@example.com', '0112233446', 'http://example.com/resume/vuquangf.pdf', CURDATE(), 87.5, 'Accepted'),
+    ('Nguyen Thi G', 'nguyenthig@example.com', '0123456781', 'http://example.com/resume/nguyenthig.pdf', CURDATE(), 91.0, 'Interviewed'),
+    ('Le Thi H', 'lethih@example.com', '0987654323', 'http://example.com/resume/lethih.pdf', CURDATE(), 84.0, 'Interviewed'),
+    ('Tran Minh I', 'tranminhi@example.com', '0112233447', 'http://example.com/resume/tranminhi.pdf', CURDATE(), 88.0, 'Accepted'),
+    ('Pham Thi J', 'phamthij@example.com', '0123456782', 'http://example.com/resume/phamthij.pdf', CURDATE(), 77.0, 'Rejected');
+
+
 
 
 

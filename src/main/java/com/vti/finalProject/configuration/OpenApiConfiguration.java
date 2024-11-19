@@ -9,9 +9,9 @@ import io.swagger.v3.oas.annotations.servers.Server;
 
 @OpenAPIDefinition(
         info = @Info(
-                title = "Car Shop REST APIs",
-                description = "Car Shop REST APIs Documentation",
-                termsOfService = "https://github.com/nguyxnhung20/kshop-server",
+                title = "EmployeeManagement",
+                description = "EmployeeManagement REST APIs Documentation",
+                termsOfService = "https://github.com/nguyxnhung20/employee_management_server",
                 contact = @Contact(
                         name = "Nguyễn Duy Hưng",
                         url = "https://github.com/nguyxnhung20",
@@ -28,8 +28,8 @@ import io.swagger.v3.oas.annotations.servers.Server;
                 url = "http://localhost:8080"
         ),
         externalDocs = @ExternalDocumentation(
-                description = "Car Shop Github",
-                url = "https://github.com/nguyxnhung20/kshop-server"
+                description = "EmployeeManagement Github",
+                url = "https://github.com/nguyxnhung20/employee_management_server"
         )
 )
 //@SecurityScheme(
