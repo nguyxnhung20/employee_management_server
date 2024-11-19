@@ -77,3 +77,16 @@ VALUES
     (8, 'Task 8', 'Description of task 8', '2024-11-08 14:00:00', '2024-11-08 18:00:00', 4.0, 'COMPLETED', 'EXCELLENT', NOW(), NOW()),
     (9, 'Task 9', 'Description of task 9', '2024-11-09 09:00:00', '2024-11-09 12:00:00', 3.0, 'COMPLETED', 'GOOD', NOW(), NOW()),
     (10, 'Task 10', 'Description of task 10', '2024-11-10 10:00:00', '2024-11-10 13:00:00', 3.0, 'IN_PROGRESS', 'AVERAGE', NOW(), NOW());
+
+INSERT INTO work_reports (user_id, report_title, report_content, report_date, status)
+VALUES
+    (1, 'Weekly Report 1', 'Content for weekly report 1', '2024-11-19', 'PENDING'),
+    (2, 'Weekly Report 2', 'Content for weekly report 2', '2024-11-19', 'APPROVED'),
+    (3, 'Weekly Report 3', 'Content for weekly report 3', '2024-11-19', 'PENDING'),
+    (4, 'Weekly Report 4', 'Content for weekly report 4', '2024-11-19', 'APPROVED'),
+    (5, 'Weekly Report 5', 'Content for weekly report 5', '2024-11-19', 'PENDING'),
+    (6, 'Weekly Report 6', 'Content for weekly report 6', '2024-11-19', 'APPROVED'),
+    (7, 'Weekly Report 7', 'Content for weekly report 7', '2024-11-19', 'PENDING'),
+    (8, 'Weekly Report 8', 'Content for weekly report 8', '2024-11-19', 'APPROVED'),
+    (9, 'Weekly Report 9', 'Content for weekly report 9', '2024-11-19', 'PENDING'),
+    (10, 'Weekly Report 10', 'Content for weekly report 10', '2024-11-19', 'APPROVED');
