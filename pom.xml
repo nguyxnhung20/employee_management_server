@@ -21,7 +21,6 @@
     </properties>
 
     <dependencies>
-        <!-- Các dependency cũ của bạn -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -63,13 +62,11 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Thêm các dependency mới cho Spring Security và JWT -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
-        <!-- JWT Dependencies -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>
@@ -94,7 +91,6 @@
             <version>9.31</version>
         </dependency>
 
-        <!-- OAuth2 Dependency -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>

@@ -9,6 +9,8 @@ import com.vti.finalProject.entity.User;
 import com.vti.finalProject.entity.HRTrainingProgram;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 public class TrainingEnrollmentMapper {
 
@@ -48,6 +50,12 @@ public class TrainingEnrollmentMapper {
         HRTrainingProgram training = new HRTrainingProgram();
         training.setTrainingId(form.getTrainingId());
         entity.setTraining(training);
+
+        if (form.getEnrollmentDate() != null) {
+            entity.setEnrollmentDate(form.getEnrollmentDate());
+        } else {
+            entity.setEnrollmentDate(LocalDate.now());
+        }
 
         entity.setStatus(EnrollmentStatus.valueOf(form.getStatus()));
         return entity;

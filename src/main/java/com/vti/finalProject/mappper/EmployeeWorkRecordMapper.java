@@ -2,6 +2,7 @@ package com.vti.finalProject.mappper;
 
 import com.vti.finalProject.dto.EmployeeWorkRecordDTO;
 import com.vti.finalProject.entity.EmployeeWorkRecord;
+import com.vti.finalProject.entity.User;
 import com.vti.finalProject.form.EmployeeWorkRecordCreateForm;
 import com.vti.finalProject.form.EmployeeWorkRecordUpdateForm;
 
@@ -32,6 +33,11 @@ public class EmployeeWorkRecordMapper {
         entity.setDurationInHours(form.getDurationInHours());
         entity.setStatus(EmployeeWorkRecord.Status.valueOf(form.getStatus()));
         entity.setPerformanceRating(EmployeeWorkRecord.PerformanceRating.valueOf(form.getPerformanceRating()));
+
+        User user = new User();
+        user.setId(form.getUserId());
+        entity.setUser(user);
+
         return entity;
     }
 
