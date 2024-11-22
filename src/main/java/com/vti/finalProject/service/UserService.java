@@ -3,6 +3,7 @@ package com.vti.finalProject.service;
 import com.vti.finalProject.dto.UserDto;
 import com.vti.finalProject.form.UserCreateForm;
 import com.vti.finalProject.form.UserUpdateForm;
+import java.util.List; // Add this import
 
 public interface UserService {
     UserDto create(UserCreateForm form);
@@ -10,4 +11,5 @@ public interface UserService {
     void delete(long id);
     UserDto searchByEmail(String email);
     UserDto searchById(long id);
+    List<UserDto> findAll();
 }

@@ -17,6 +17,11 @@ public class WorkScheduleController {
     @Autowired
     private WorkScheduleService workScheduleService;
 
+    @GetMapping
+    public ResponseEntity<List<WorkScheduleDto>> getAllWorkSchedules() {
+        return ResponseEntity.ok(workScheduleService.getAllWorkSchedules());
+    }
+
     @PostMapping
     public ResponseEntity<WorkScheduleDto> createWorkSchedule(
             @Valid @RequestBody WorkScheduleCreateForm form) {

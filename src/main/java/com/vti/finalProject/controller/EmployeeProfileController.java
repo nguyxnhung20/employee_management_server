@@ -9,6 +9,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/v1/employee-profiles")
@@ -36,5 +38,10 @@ public class EmployeeProfileController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable long id) {
         profileService.delete(id);
+    }
+
+    @GetMapping
+    public List<EmployeeProfileDto> findAll() {
+        return profileService.findAll();
     }
 }

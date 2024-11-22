@@ -17,6 +17,11 @@ public class WorkReportController {
     @Autowired
     private WorkReportService workReportService;
 
+    @GetMapping
+    public List<WorkReport> findAll() {
+        return workReportService.findAll();
+    }
+
     @PostMapping("/create")
     public WorkReportDTO createWorkReport(@RequestBody WorkReportCreateForm form) {
         return workReportService.createWorkReport(form);

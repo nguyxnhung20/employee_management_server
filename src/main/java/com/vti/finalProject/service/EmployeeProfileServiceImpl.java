@@ -1,18 +1,23 @@
 package com.vti.finalProject.service;
 
 import com.vti.finalProject.dto.EmployeeProfileDto;
+import com.vti.finalProject.dto.UserDto;
 import com.vti.finalProject.entity.Department;
 import com.vti.finalProject.entity.EmployeeProfile;
 import com.vti.finalProject.entity.User;
 import com.vti.finalProject.form.EmployeeProfileCreateForm;
 import com.vti.finalProject.form.EmployeeProfileUpdateForm;
 import com.vti.finalProject.mapper.EmployeeProfileMapper;
+import com.vti.finalProject.mappper.UserMapper;
 import com.vti.finalProject.repository.DepartmentRepository;
 import com.vti.finalProject.repository.EmployeeProfileRepository;
 import com.vti.finalProject.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -21,6 +26,14 @@ public class EmployeeProfileServiceImpl implements EmployeeProfileService {
     private final EmployeeProfileRepository profileRepository;
     private final UserRepository userRepository;
     private final DepartmentRepository departmentRepository;
+
+    @Override
+    public List<EmployeeProfileDto> findAll() {
+        List<EmployeeProfile> employeeProfiles = profileRepository.findAll();
+        return employeeProfiles.stream()
+                .map(EmployeeProfileMapper::map)
+                .collect(Collectors.toList());
+    }
 
     @Override
     public EmployeeProfileDto create(EmployeeProfileCreateForm form) {

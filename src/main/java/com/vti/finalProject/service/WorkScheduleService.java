@@ -9,6 +9,7 @@ import com.vti.finalProject.form.WorkScheduleUpdateForm;
 import java.util.List;
 
 public interface WorkScheduleService {
+    List<WorkScheduleDto> getAllWorkSchedules();
     WorkScheduleDto createWorkSchedule(WorkScheduleCreateForm form);
     WorkScheduleDto updateWorkSchedule(WorkScheduleUpdateForm form);
     List<WorkScheduleDto> getWorkSchedulesByUserId(Long userId);

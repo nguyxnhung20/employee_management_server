@@ -30,6 +30,15 @@ public class WorkScheduleServiceImpl implements WorkScheduleService {
     private WorkScheduleMapper workScheduleMapper;
 
     @Override
+    @Transactional(readOnly = true)
+    public List<WorkScheduleDto> getAllWorkSchedules() {
+        return workScheduleRepository.findAll()
+                .stream()
+                .map(workScheduleMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     @Transactional
     public WorkScheduleDto createWorkSchedule(WorkScheduleCreateForm form) {
         User user = userRepository.findById(form.getUserId())
@@ -56,7 +65,6 @@ public class WorkScheduleServiceImpl implements WorkScheduleService {
     @Override
     @Transactional(readOnly = true)
     public List<WorkScheduleDto> getWorkSchedulesByUserId(Long userId) {
-        // Validate user exists
         userRepository.findById(userId)
                 .orElseThrow(() -> new EntityNotFoundException("User not found with id: " + userId));
 

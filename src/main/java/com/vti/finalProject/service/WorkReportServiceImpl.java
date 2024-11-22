@@ -28,6 +28,11 @@ public class WorkReportServiceImpl implements WorkReportService {
     @Autowired
     private UserRepository userRepository;
 
+    @Override
+    public List<WorkReport> findAll() {
+        return workReportRepository.findAll();
+    }
+
     @Transactional
     @Override
     public WorkReportDTO createWorkReport(WorkReportCreateForm form) {
