@@ -1,5 +1,6 @@
 package com.vti.finalProject.service;
 
+import com.vti.finalProject.dto.ReturnResult;
 import com.vti.finalProject.dto.UserDto;
 import com.vti.finalProject.entity.Position;
 import com.vti.finalProject.entity.User;
@@ -17,6 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,14 +38,27 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public UserDto create(UserCreateForm form) {
-        User user = UserMapper.map(form);
-        Position position = positionRepository.findById(form.getPositionId())
-                .orElseThrow(() -> new EntityNotFoundException("Position not found"));
+    public ReturnResult create(UserCreateForm form) {
+        ReturnResult returnResult = new ReturnResult();
+        User user = userRepository.findByEmail(form.getEmail());
+        if(user != null) {
+            returnResult.setCode(-1);
+            returnResult.setMessage("User already exists");
+            return returnResult;
+        }
+        user = UserMapper.map(form);
+        Position position = positionRepository.findById(form.getPositionId()).orElse(null);
+        if(position == null) {
+            returnResult.setCode(-2);
+            returnResult.setMessage("Position already exists");
+            return returnResult;
+        }
         user.setPosition(position);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user = userRepository.save(user);
-        return UserMapper.map(user);
+        UserDto userDto = UserMapper.map(user);
+        returnResult.setData(userDto);
+        return returnResult;
     }
 
     @Override

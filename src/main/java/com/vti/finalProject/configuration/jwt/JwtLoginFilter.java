@@ -1,6 +1,7 @@
 package com.vti.finalProject.configuration.jwt;
 
 import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpHeaders;
@@ -15,6 +16,7 @@ import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import java.io.IOException;
 import java.time.Instant;
 import java.util.stream.Collectors;
 
@@ -22,7 +24,7 @@ public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {
     private final JwtEncoder jwtEncoder;
 
     public JwtLoginFilter(AuthenticationManager authenticationManager, JwtEncoder jwtEncoder) {
-        super(new AntPathRequestMatcher("/api/v1/auth/login", "POST"), authenticationManager);
+        super(new AntPathRequestMatcher("/api/v1/auth/login"), authenticationManager);
         this.jwtEncoder = jwtEncoder;
     }
 
@@ -39,7 +41,7 @@ public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {
     protected void successfulAuthentication(
             HttpServletRequest request, HttpServletResponse response,
             FilterChain chain, Authentication authResult
-    ) {
+    ) throws IOException {
         var now = Instant.now();
         var scope = authResult.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
@@ -47,11 +49,17 @@ public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {
         var claims = JwtClaimsSet.builder()
                 .issuer("self")
                 .issuedAt(now)
-                .expiresAt(now.plusSeconds(18000L))
+                .expiresAt(now.plusSeconds(18L))
                 .subject(authResult.getName())
                 .claim("scope", scope)
                 .build();
         var token = jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
-        response.addHeader(HttpHeaders.AUTHORIZATION, "Bearer " + token);
+        response.getWriter().write(token);
+    }
+
+    @Override
+    protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
+        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        response.getWriter().write("Your email or password is incorrect. Please try again.");
     }
 }

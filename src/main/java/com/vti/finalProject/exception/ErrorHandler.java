@@ -1,6 +1,7 @@
 package com.vti.finalProject.exception;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nimbusds.oauth2.sdk.dpop.verifiers.AccessTokenValidationException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -63,6 +64,12 @@ public class ErrorHandler extends ResponseEntityExceptionHandler implements Mess
         }
         var response = new ErrorResponse(message, errors);
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(value = RuntimeException.class)
+    public ResponseEntity<Object> handleAccessDeniedException(RuntimeException exception) {
+        var message = "Sorry! Access denied";
+        return new ResponseEntity<>(new ErrorResponse(message), HttpStatus.FORBIDDEN);
     }
 
     @Override

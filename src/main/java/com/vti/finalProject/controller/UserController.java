@@ -1,5 +1,6 @@
 package com.vti.finalProject.controller;
 
+import com.vti.finalProject.dto.ReturnResult;
 import com.vti.finalProject.dto.UserDto;
 import com.vti.finalProject.form.UserCreateForm;
 import com.vti.finalProject.form.UserUpdateForm;
@@ -25,7 +26,7 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public UserDto create(@RequestBody @Valid UserCreateForm form) {
+    public ReturnResult create(@RequestBody @Valid UserCreateForm form) {
         return userService.create(form);
     }
 
