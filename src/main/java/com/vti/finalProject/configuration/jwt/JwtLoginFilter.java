@@ -49,7 +49,7 @@ public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {
         var claims = JwtClaimsSet.builder()
                 .issuer("self")
                 .issuedAt(now)
-                .expiresAt(now.plusSeconds(18L))
+                .expiresAt(now.plusSeconds(18000L))
                 .subject(authResult.getName())
                 .claim("scope", scope)
                 .build();
