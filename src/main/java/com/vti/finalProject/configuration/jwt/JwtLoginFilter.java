@@ -1,5 +1,6 @@
 package com.vti.finalProject.configuration.jwt;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,23 +19,35 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import java.io.IOException;
 import java.time.Instant;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {
     private final JwtEncoder jwtEncoder;
+    private final ObjectMapper objectMapper;
 
     public JwtLoginFilter(AuthenticationManager authenticationManager, JwtEncoder jwtEncoder) {
+        this(authenticationManager, jwtEncoder, new ObjectMapper());
+    }
+
+    public JwtLoginFilter(AuthenticationManager authenticationManager, JwtEncoder jwtEncoder, ObjectMapper objectMapper) {
         super(new AntPathRequestMatcher("/api/v1/auth/login"), authenticationManager);
         this.jwtEncoder = jwtEncoder;
+        this.objectMapper = objectMapper;
     }
 
     @Override
     public Authentication attemptAuthentication(
             HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-        var email = request.getParameter("email");
-        var password = request.getParameter("password");
-        var authentication = UsernamePasswordAuthenticationToken.unauthenticated(email, password);
-        return getAuthenticationManager().authenticate(authentication);
+        try {
+            Map<String, String> loginRequest = objectMapper.readValue(request.getInputStream(), Map.class);
+            var email = loginRequest.get("email");
+            var password = loginRequest.get("password");
+            var authentication = UsernamePasswordAuthenticationToken.unauthenticated(email, password);
+            return getAuthenticationManager().authenticate(authentication);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
